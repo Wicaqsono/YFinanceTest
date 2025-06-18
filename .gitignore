@@ -1,0 +1,36 @@
+# Python bytecode cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+
+# IDE/editor files
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log & misc
+*.log
+*.sqlite3
+
+# Environment/config
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Packaging
+*.egg
+*.egg-info/
+dist/
+build/
+
+# pycache di dalam subfolder
+**/__pycache__/
