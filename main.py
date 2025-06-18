@@ -8,6 +8,9 @@ from fastapi.responses import FileResponse
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "Hello from YFinanceTest"}
 
 @app.get("/test")
 def test_api(apikey: str = Depends(validate_api_key)):
