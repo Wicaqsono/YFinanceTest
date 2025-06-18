@@ -1,5 +1,7 @@
 from fastapi import FastAPI, Depends
 from timeseries import TimeSeries
+from timeseries import BBands
+from timeseries import MACD
 from auth import validate_api_key
 from candlestick_chart import create_candlestick_chart
 from fastapi.responses import FileResponse
@@ -21,6 +23,33 @@ def get_ohlcv(
     
     ts = TimeSeries(symbol, period, interval)
     return ts.get_json()
+
+@app.get("/bbands")
+def get_bbands(
+    symbol: str = "TSLA",
+    period: str = "5d",
+    interval: str = "1d",
+    window: int = 20,
+    std_multiplier: int = 2,
+    apikey: str = Depends(validate_api_key)
+):
+    
+    bbands = BBands(symbol, period, interval, window, std_multiplier)
+    return bbands.get_json()
+
+@app.get("/macd")
+def get_macd(
+    symbol: str = "TSLA",
+    period: str = "5d",
+    interval: str = "1d",
+    fast_period: int = 12,
+    slow_period: int = 26,
+    signal_period: int = 9,
+    apikey: str = Depends(validate_api_key)
+):
+    
+    macd = MACD(symbol, period, interval, fast_period, slow_period, signal_period)
+    return macd.get_json()
 
 @app.get("/candlestick")
 def get_ohlcv(

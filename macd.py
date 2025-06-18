@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import json
 
-symbol = "ANTM.JK"
+symbol = "TSLA"
 interval = "1d"
 currency = "USD"
 exchange = "NASDAQ"

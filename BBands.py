@@ -4,7 +4,7 @@ import numpy as np
 import json
 from datetime import datetime
 
-symbol = "TSLA"
+symbol = "ANTAM.JK"
 interval = "1d"
 currency = "USD"
 exchange = "NASDAQ"
